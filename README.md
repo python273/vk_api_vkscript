@@ -28,3 +28,23 @@ var x = parseInt(API.status.get()["text"]);
 x = x + 1;
 return API.status.set({text:x});
 ```
+
+---
+
+The end goal is
+```python
+import vk_api
+from parser import vkscript
+
+@vkscript
+def inc_status(vk):  # first arg is always VkApiMethod
+    x = int(vk.status.get()['text'])  # int gets converted into parseInt
+    x = x + 1
+    return vk.status.set(text=x)
+
+vk_session = vk_api.VkApi('python@vk.com', 'mypassword')
+vk_session.auth(token_only=True)
+vk = vk_session.get_api()
+print(inc_status(vk))
+print(inc_status.orig(vk))  # would call unmodified function
+```
