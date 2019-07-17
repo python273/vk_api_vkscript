@@ -1,7 +1,7 @@
 # vk_api_vkscript
 
 A little experiment with transpilation of python function code
- into (VKScript)[https://vk.com/dev/execute]
+ into [VKScript](https://vk.com/dev/execute)
 
 ```python
 import vk_api
